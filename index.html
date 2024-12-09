@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="一日一組限定のプライベートホームサロン。アロマとホットストーンによる深いリラクゼーションをご提供します。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ホームサロン | 一日一組限定の特別な隠れ家</title>
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+<style>
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    font-family: 'Kosugi Maru', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #feeef2; /* 薄いピンク背景 */
+    color: #333;
+    line-height: 1.7;
+  }
+  header, nav, main, footer {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  header {
+    padding: 20px 0;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: #444;
+    line-height: 1.4;
+  }
+  header p {
+    margin: 8px 0 0;
+    font-size: 0.95em;
+    color: #666;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 0;
+    background: #f7f5f5;
+    border-bottom: 1px solid #eee;
+  }
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.95em;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  nav a:hover {
+    background: #f2dce0; /* ホバーで柔らかなピンク */
+  }
+  nav .reserve-btn {
+    background: #f4cdd3; /* 柔らかなピンクのボタン */
+    color: #333;
+  }
+  .hero {
+    position: relative;
+    background: url('hero-image.jpg') no-repeat center/cover;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .hero-wrapper {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .hero-image-left, .hero-image-right {
+    flex: 0 0 auto;
+  }
+  .hero-image-left img, .hero-image-right img {
+    max-height: 264.73px;
+    width: auto;
+    border-radius: 10px;
+  }
+  .hero-content {
+    background: rgba(0,0,0,0.3);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    flex: 1;
+  }
+  .hero-content h2 {
+    font-size: 1.9em;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  .hero-content p {
+    font-size: 1em;
+    margin: 10px 0;
+  }
+  .hero-content .reserve-btn-hero {
+    background: #f4cdd3;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 15px;
+    transition: background 0.3s;
+  }
+  .hero-content .reserve-btn-hero:hover {
+    background: #f9dce1;
+  }
+  main {
+    padding: 40px 20px;
+  }
+  section {
+    margin-bottom: 60px;
+  }
+  section h3 {
+    font-size: 1.6em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #444;
+    line-height: 1.4;
+  }
+  .intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .intro p {
+    line-height: 1.9;
+    margin: 0 auto;
+    text-align: left;
+    color: #555;
+  }
+  #menu {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    text-align: center;
+  }
+  .service-item {
+    flex: 1 1 300px;
+    min-width: 280px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .service-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .service-item h4 {
+    font-size: 1.2em;
+    margin: 15px 0 10px;
+    color: #333;
+  }
+  .service-item p {
+    line-height: 1.8;
+    font-size: 0.9em;
+    color: #555;
+    text-align: left;
+  }
+  #menu .reserve-btn-hero {
+    margin-top: 20px;
+  }
+  #voices {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .voice ul {
+    list-style: none;
+    padding: 0;
+  }
+  .voice li {
+    margin-bottom: 30px;
+    border-bottom: 1px dotted #eee;
+    padding-bottom: 10px;
+  }
+  .voice li p {
+    font-size: 0.9em;
+    line-height: 1.7;
+    margin: 0;
+    text-align: left;
+    color: #555;
+  }
+  #reserve, #access, #blog {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #reserve p, #access p, #blog p {
+    text-align: left;
+    color: #555;
+    line-height: 1.9;
+  }
+  .reserve-btn-hero {
+    background: #f4cdd3;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background 0.3s;
+  }
+  .reserve-btn-hero:hover {
+    background: #f9dce1;
+  }
+  footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: #666;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    margin-top: 40px;
+  }
+
+  /* ここからレスポンシブ対応用メディアクエリ */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.5em;
+    }
+    .hero-wrapper {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .hero-image-left,
+    .hero-image-right {
+      display: none;
+    }
+    .hero-content {
+      max-width: 100%;
+      margin: 0;
+    }
+    .hero-content h2 {
+      font-size: 1.5em;
+    }
+    nav {
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px 0;
+    }
+    .services {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .service-item {
+      min-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.3em;
+    }
+    .hero-content h2 {
+      font-size: 1.3em;
+    }
+    section h3 {
+      font-size: 1.4em;
+    }
+    .intro p,
+    .service-item p,
+    .voice li p,
+    #reserve p,
+    #access p,
+    #blog p {
+      font-size: 0.9em;
+    }
+  }
+
+</style>
+</head>
+<body>
+<header>
+  <h1>一日一組限定のホームサロン</h1>
+  <p>「自分に還る、特別な隠れ家」へようこそ</p>
+</header>
+
+<nav>
+  <a href="#concept">コンセプト</a>
+  <a href="#menu">メニュー・料金</a>
+  <a href="#reserve" class="reserve-btn">予約する</a>
+  <a href="#access">アクセス</a>
+  <a href="#blog">ブログ</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-wrapper">
+    <div class="hero-image-left">
+      <img src="aromatherapy.jpg" alt="アロマセラピー">
+    </div>
+    <div class="hero-content">
+      <h2>アロマの香りに包まれて<br>自分に戻るひとときを。</h2>
+      <p>心と体を潤すアロマ＆ホットストーンの癒し</p>
+      <a href="#reserve" class="reserve-btn-hero">今すぐ予約する</a>
+    </div>
+    <div class="hero-image-right">
+      <img src="hot_stone.webp" alt="ホットストーン">
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="intro" id="concept">
+    <h3>あなた本来の美しさと輝きを、深く静かな癒しの中で目覚めさせる。</h3>
+    <p>
+      私たちのホームサロンは、「自分に還る、特別な隠れ家」というコンセプトのもと、一日一組限定のプライベート空間を提供しています。<br>
+      厳選された天然オイル、熟練セラピストの手技、そして内側から美しさを引き出す深いリラクゼーション。<br>
+      日々の忙しさから解放され、まるで自宅のような安心感の中で、ゆっくりと心と体をほどいてください。<br>
+      アットホームな空間で、お茶を飲みながら何気ないお話しも大歓迎。初めての方でも安心してお越しいただけます。
+    </p>
+  </section>
+
+  <section id="menu">
+    <h3>メニュー・料金</h3>
+    <div class="services">
+      <div class="service-item">
+        <img src="aroma.jpg" alt="アロマトリートメント">
+        <h4>アロマトリートメント</h4>
+        <p>
+          「心と体を慈しむ香りの力、それがアロマトリートメントの真髄です…」<br><br>
+          厳選した天然オイルを用いた繊細な手技で、深いリラクゼーションへと誘います。<br><br>
+          60分コース：8,000円<br>
+          90分コース：12,000円
+        </p>
+      </div>
+      <div class="service-item">
+        <img src="hotstone.jpg" alt="ホットストーンセラピー">
+        <h4>ホットストーンセラピー</h4>
+        <p>
+          身体を芯から温め、凝り固まった筋肉をじんわり解きほぐすホットストーン。<br><br>
+          温かな石のぬくもりと、ゆったりとした圧で深部からのリラクゼーションをお届けします。<br><br>
+          60分コース：9,000円<br>
+          90分コース：13,000円
+        </p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:20px;">
+      <a href="#reserve" class="reserve-btn-hero">この特別な空間を今すぐ体験する</a>
+    </div>
+  </section>
+
+  <section id="voices">
+    <h3>お客様の声</h3>
+    <div class="voice">
+      <ul>
+        <li>
+          <p>「一日一組限定という特別感がたまりません。仕事で疲れた心がスッと軽くなりました。」（40代・女性）</p>
+        </li>
+        <li>
+          <p>「温かな手のぬくもりと香り高いアロマオイルに包まれて、リセットされた気分です。」（30代・男性）</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="reserve">
+    <h3>ご予約について</h3>
+    <p>
+      当サロンは完全予約制です。空き状況・お支払方法・キャンセルポリシーにつきましては、下記フォームよりお気軽にお問い合わせください。<br>
+      初めての方でも安心してご利用いただけるよう、来店時の注意点や流れも丁寧にご案内しております。
+    </p>
+    <div style="text-align:center; margin-top:20px;">
+      <a href="reservation.html" class="reserve-btn-hero">予約フォームはこちら</a>
+    </div>
+  </section>
+
+  <section id="access">
+    <h3>アクセス・お問い合わせ</h3>
+    <p>
+      ○○駅から徒歩5分、静かな住宅街の一角にあるサロンです。<br>
+      詳細な住所・地図、メールや電話でのお問い合わせは、下記ページよりご確認ください。
+    </p>
+    <div style="text-align:center; margin-top:20px;">
+      <a href="contact.html" class="reserve-btn-hero">アクセス・問い合わせページへ</a>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h3>ブログ・コラム</h3>
+    <p>
+      アロマやストーンセラピー関連の知識、セルフケア方法など、専門的な情報を定期的に発信しています。<br>
+      ご自宅でのケアや、当サロン来店前の予備知識としてお役立てください。
+    </p>
+    <div style="text-align:center; margin-top:20px;">
+      <a href="blog.html" class="reserve-btn-hero">ブログ・コラムを見る</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2024 ホームサロン「一日一組限定の特別な隠れ家」 All rights reserved.</p>
+</footer>
+</body>
+</html>
